@@ -1,5 +1,8 @@
 # bench_mark
 
+run in actions
+=================
+
 sqlite3
 
 insert 10000000 rows taken 17867ms, 559690 insert/second 
