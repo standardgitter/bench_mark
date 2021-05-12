@@ -215,26 +215,26 @@ Document Path:          /
 Document Length:        10 bytes
 
 Concurrency Level:      100
-Time taken for tests:   11.497 seconds
-Complete requests:      200000
+Time taken for tests:   220.126 seconds
+Complete requests:      3000000
 Failed requests:        0
-Total transferred:      49800000 bytes
-HTML transferred:       2000000 bytes
-Requests per second:    17395.83 [#/sec] (mean)
-Time per request:       5.749 [ms] (mean)
-Time per request:       0.057 [ms] (mean, across all concurrent requests)
-Transfer rate:          4230.04 [Kbytes/sec] received
+Total transferred:      747000000 bytes
+HTML transferred:       30000000 bytes
+Requests per second:    13628.56 [#/sec] (mean)
+Time per request:       7.338 [ms] (mean)
+Time per request:       0.073 [ms] (mean, across all concurrent requests)
+Transfer rate:          3313.98 [Kbytes/sec] received
 
 nginx keep alive ===================================================
 Concurrency Level:      100
-Time taken for tests:   4.219 seconds
-Complete requests:      200000
+Time taken for tests:   150.875 seconds
+Complete requests:      3000000
 Failed requests:        0
-Keep-Alive requests:    198047
-Total transferred:      50790235 bytes
-HTML transferred:       2000000 bytes
-Requests per second:    47403.80 [#/sec] (mean)
-Time per request:       2.110 [ms] (mean)
-Time per request:       0.021 [ms] (mean, across all concurrent requests)
-Transfer rate:          11756.10 [Kbytes/sec] received
+Keep-Alive requests:    2970048
+Total transferred:      761850240 bytes
+HTML transferred:       30000000 bytes
+Requests per second:    19884.04 [#/sec] (mean)
+Time per request:       5.029 [ms] (mean)
+Time per request:       0.050 [ms] (mean, across all concurrent requests)
+Transfer rate:          4931.20 [Kbytes/sec] received
 
