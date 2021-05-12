@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <sys/time.h>
 #include "sqlite3.h"
-//gcc test.c -o test  -L/root/dvlp/sqlite3/lib -I/root/dvlp/sqlite3/include  -lsqlite3 -ldl
+
 void insert_test(sqlite3 *db,size_t rows){
 	sqlite3_stmt *stmt = 0;
 	int i,len;
@@ -26,7 +26,7 @@ void insert_test(sqlite3 *db,size_t rows){
 	double ms = (double)end.tv_sec * 1000.0 + (double)end.tv_usec/1000.0  
 	-  (double)start.tv_sec * 1000.0 - (double)start.tv_usec/1000.0;
 	
-	printf("select %ld rows taken %.0fms, %.0f insert/second \n",rows, ms ,rows*1000/ms);
+	printf("insert %ld rows taken %.0fms, %.0f insert/second \n",rows, ms ,rows*1000/ms);
 }
 
 
@@ -64,7 +64,7 @@ int main(int argc, char* argv[])
 {
 	size_t rows;
 	if(argc == 2)
-		rows = atoi(argv[1]);
+		rows = atol(argv[1]);
 	else
 		rows = 3000000;
 	
