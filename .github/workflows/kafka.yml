@@ -22,8 +22,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          https://mirrors.ocf.berkeley.edu/apache/kafka/2.8.0/kafka_2.13-2.8.0.tgz
-          tar -zxvf kafka_2.13-2.8.0.tgz
+          wget https://mirrors.ocf.berkeley.edu/apache/kafka/2.8.0/kafka_2.13-2.8.0.tgz
+          tar -xvf kafka_2.13-2.8.0.tgz
           cd kafka_2.13-2.8.0
           ./bin/zookeeper-server-start.sh ./config/zookeeper.properties > /dev/null & 
           ./bin/kafka-server-start.sh ./config/server.properties > /dev/null & 
