@@ -72,8 +72,8 @@ int main(int argc, char* argv[])
 	sqlite3_open(":memory:", &db);
 	sqlite3_exec(db, "CREATE TABLE t1(c1_i INTEGER PRIMARY KEY,c2_t text)", NULL, 0, NULL);
 
-	insert_test(db,3000000);
-	select_test(db,3000000);
+	insert_test(db,rows);
+	select_test(db,rows);
 
 	sqlite3_close(db);
 	return 0;
