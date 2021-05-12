@@ -60,8 +60,14 @@ void select_test(sqlite3 *db,size_t rows){
 	
 }
 
-int main()
+int main(int argc, char* argv[])
 {
+	size_t rows;
+	if(argc == 2)
+		rows = atoi(argv[1]);
+	else
+		rows = 3000000;
+	
 	sqlite3 *db;
 	sqlite3_open(":memory:", &db);
 	sqlite3_exec(db, "CREATE TABLE t1(c1_i INTEGER PRIMARY KEY,c2_t text)", NULL, 0, NULL);
