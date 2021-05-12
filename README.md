@@ -3,14 +3,14 @@
 run in actions
 =================
 
-sqlite3
+sqlite3================================================
 
 insert 10000000 rows taken 17867ms, 559690 insert/second 
 
 select 10000000 rows taken 9210ms, 1085776 select/second 
 
 
-kafka
+kafka==================================================
 
 Created topic mytopic1.
 Topic: mytopic1	TopicId: urBVbX7jQpixdM_GstLZbw	PartitionCount: 1	ReplicationFactor: 1	Configs: segment.bytes=1073741824
@@ -29,7 +29,7 @@ start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.s
 
 
 
-redis
+redis====================================================
 
 PING_INLINE: 0.00
 PING_INLINE: 62892.43
@@ -201,3 +201,40 @@ MSET (10 keys): 74461.29
 MSET (10 keys): 75584.60
 MSET (10 keys): 75732.61
 MSET (10 keys): 75700.23 requests per second
+
+
+
+
+nginx===================================================
+
+Server Software:        nginx/1.18.0
+Server Hostname:        127.0.0.1
+Server Port:            8086
+
+Document Path:          /
+Document Length:        10 bytes
+
+Concurrency Level:      100
+Time taken for tests:   11.497 seconds
+Complete requests:      200000
+Failed requests:        0
+Total transferred:      49800000 bytes
+HTML transferred:       2000000 bytes
+Requests per second:    17395.83 [#/sec] (mean)
+Time per request:       5.749 [ms] (mean)
+Time per request:       0.057 [ms] (mean, across all concurrent requests)
+Transfer rate:          4230.04 [Kbytes/sec] received
+
+nginx keep alive ===================================================
+Concurrency Level:      100
+Time taken for tests:   4.219 seconds
+Complete requests:      200000
+Failed requests:        0
+Keep-Alive requests:    198047
+Total transferred:      50790235 bytes
+HTML transferred:       2000000 bytes
+Requests per second:    47403.80 [#/sec] (mean)
+Time per request:       2.110 [ms] (mean)
+Time per request:       0.021 [ms] (mean, across all concurrent requests)
+Transfer rate:          11756.10 [Kbytes/sec] received
+
