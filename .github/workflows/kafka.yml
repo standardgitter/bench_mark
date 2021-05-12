@@ -22,5 +22,16 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
+          https://mirrors.ocf.berkeley.edu/apache/kafka/2.8.0/kafka_2.13-2.8.0.tgz
+          tar -zxvf kafka_2.13-2.8.0.tgz
+          cd kafka_2.13-2.8.0
+          ./bin/zookeeper-server-start.sh ./config/zookeeper.properties > /dev/null & 
+          ./bin/kafka-server-start.sh ./config/server.properties > /dev/null & 
+          sleep 3
+          ./bin/kafka-topics.sh --create  --bootstrap-server 127.0.0.1:9092 --topic mytopic1
+          ./bin/kafka-topics.sh --describe  --bootstrap-server 127.0.0.1:9092 --topic mytopic1
+          ./bin/kafka-producer-perf-test.sh  --throughput -1 --producer-props acks=all bootstrap.servers=127.0.0.1:9092 --num-records 3000000 --record-size 1000 --topic mytopic1
+          ./bin/kafka-consumer-perf-test.sh --help
+          ./bin/zookeeper-server-stop.sh
+          ./bin/kafka-server-stop.sh
           echo test, and deploy your project.
