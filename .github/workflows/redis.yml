@@ -25,6 +25,6 @@ jobs:
           sudo apt-get install -y redis-server 
           sudo sed -i 's/port 6379/port 16379/g' /etc/redis/redis.conf
           sudo cat /etc/redis/redis.conf | grep port
-          redis-server 
+          redis-server /etc/redis/redis.conf
           redis-benchmark -p 16379 -q -n 100000
           echo test, and deploy your project.
