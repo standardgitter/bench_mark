@@ -25,7 +25,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           wget https://sqlite.org/2021/sqlite-autoconf-3350500.tar.gz
-          tar -zxvf https://sqlite.org/2021/sqlite-autoconf-3350500.tar.gz
+          tar -zxvf sqlite-autoconf-3350500.tar.gz
           cd qlite-autoconf-3350500/
           ./configure --prefix=/tmp/sqlite3
           make && make install
