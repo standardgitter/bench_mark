@@ -5,7 +5,7 @@
 
 void insert_test(sqlite3 *db,size_t rows){
 	sqlite3_stmt *stmt = 0;
-	int i,len;
+	int i,len,rc;
 	char var[12];
 	struct timeval start, end;
 	gettimeofday(&start, NULL);
