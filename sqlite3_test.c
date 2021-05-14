@@ -29,7 +29,7 @@ void insert_test(sqlite3 *db,size_t rows){
 	
 	sqlite3_prepare_v2(db, "SELECT count(*) FROM t1 ",-1, &stmt, 0);
 	while( (rc = sqlite3_step(stmt)) == SQLITE_ROW ){
-		printf("%d rows count\n",sqlite3_column_int(pStmt, 0 ));
+		printf("%d rows count\n",sqlite3_column_int(stmt, 0 ));
 	}
 	sqlite3_finalize(stmt);
 	
