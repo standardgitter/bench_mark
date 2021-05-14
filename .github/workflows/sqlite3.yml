@@ -33,6 +33,7 @@ jobs:
           gcc sqlite3_test.c -o sqlite3_test -lsqlite3
           ls -l
           ./sqlite3_test ${{ github.event.inputs.param }}
+          ls -l disk.sqlite3
 #          wget https://sqlite.org/2021/sqlite-autoconf-3350500.tar.gz
 #          tar -zxvf sqlite-autoconf-3350500.tar.gz
 #          cd sqlite-autoconf-3350500/
