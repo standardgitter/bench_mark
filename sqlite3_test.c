@@ -79,9 +79,9 @@ void backup_test(sqlite3 *db){
 	rc = sqlite3_open("disk.sqlite3", &disk_db);
 	backup = sqlite3_backup_init(disk_db, "main", db, "main");
 	do {
-        	rc = sqlite3_backup_step(backup, 5);
+        	rc = sqlite3_backup_step(backup, 1000);
         	printf("%d/%d\n",sqlite3_backup_remaining(backup),sqlite3_backup_pagecount(backup));
-        	if( rc==SQLITE_OK || rc==SQLITE_BUSY || rc==SQLITE_LOCKED ){
+        	if( rc==SQLITE_BUSY || rc==SQLITE_LOCKED ){
           		sqlite3_sleep(250);
         	}
 	} while( rc==SQLITE_OK || rc==SQLITE_BUSY || rc==SQLITE_LOCKED );
