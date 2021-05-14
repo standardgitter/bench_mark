@@ -37,6 +37,7 @@ void insert_test(sqlite3 *db,size_t rows){
 }
 
 
+
 void select_test(sqlite3 *db,size_t rows){
 	sqlite3_stmt *stmt = 0;
 	int var, i, rc;
@@ -67,6 +68,34 @@ void select_test(sqlite3 *db,size_t rows){
 	
 }
 
+
+void backup_test(sqlite3 *db){
+	int rc;
+	sqlite3 *disk_db;
+	sqlite3_backup *backup;
+	struct timeval start, end;
+	gettimeofday(&start, NULL);
+	
+	rc = sqlite3_open("disk.sqlite3", &disk_db);
+	backup = sqlite3_backup_init(disk_db, "main", db, "main");
+	do {
+        	rc = sqlite3_backup_step(backup, 5);
+        	printf("%d/%d\n",sqlite3_backup_remaining(backup),sqlite3_backup_pagecount(backup));
+        	if( rc==SQLITE_OK || rc==SQLITE_BUSY || rc==SQLITE_LOCKED ){
+          		sqlite3_sleep(250);
+        	}
+	} while( rc==SQLITE_OK || rc==SQLITE_BUSY || rc==SQLITE_LOCKED );
+	sqlite3_backup_finish(backup);
+	sqlite3_close(disk_db);
+	
+	gettimeofday(&end, NULL);
+	double ms = (double)end.tv_sec * 1000.0 + (double)end.tv_usec/1000.0  
+	-  (double)start.tv_sec * 1000.0 - (double)start.tv_usec/1000.0;
+	
+	printf("backup taken %.0fms\n",ms);
+}
+
+
 int main(int argc, char* argv[])
 {
 	size_t rows;
@@ -81,6 +110,7 @@ int main(int argc, char* argv[])
 
 	insert_test(db,rows);
 	select_test(db,rows);
+	backup_test(db);
 
 	sqlite3_close(db);
 	return 0;
