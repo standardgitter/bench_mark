@@ -14,7 +14,7 @@ void insert_test(sqlite3 *db,size_t rows){
 	//sqlite3_exec(db, "begin", NULL, 0, NULL);//use transation will save much time
 	for(i=0;i<rows;i++){
 		len = snprintf(var,sizeof(var),"011%d",i);
-		sqlite3_bind_text(stmt, 0, var, len, 0);
+		sqlite3_bind_text(stmt, 0, var, -1, SQLITE_STATIC);
 		sqlite3_step(stmt);
 		sqlite3_reset(stmt);
 	}
@@ -33,7 +33,7 @@ void insert_test(sqlite3 *db,size_t rows){
 	}
 	sqlite3_finalize(stmt);
 	
-	printf("insert %ld rows taken %.0fms, %.0f insert/second \n",i, ms ,rows*1000/ms);
+	printf("insert %d rows taken %.0fms, %.0f insert/second \n",i, ms ,rows*1000/ms);
 }
 
 
@@ -64,7 +64,7 @@ void select_test(sqlite3 *db,size_t rows){
 	double ms = (double)end.tv_sec * 1000.0 + (double)end.tv_usec/1000.0  
 	-  (double)start.tv_sec * 1000.0 - (double)start.tv_usec/1000.0;
 	
-	printf("select %ld rows taken %.0fms, %.0f select/second \n",i, ms ,rows*1000/ms);
+	printf("select %d rows taken %.0fms, %.0f select/second \n",i, ms ,rows*1000/ms);
 	
 }
 
