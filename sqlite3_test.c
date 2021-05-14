@@ -27,7 +27,13 @@ void insert_test(sqlite3 *db,size_t rows){
 	double ms = (double)end.tv_sec * 1000.0 + (double)end.tv_usec/1000.0  
 	-  (double)start.tv_sec * 1000.0 - (double)start.tv_usec/1000.0;
 	
-	printf("insert %ld rows taken %.0fms, %.0f insert/second \n",rows, ms ,rows*1000/ms);
+	sqlite3_prepare_v2(db, "SELECT count(*) FROM t1 ",-1, &stmt, 0);
+	while( (rc = sqlite3_step(stmt)) == SQLITE_ROW ){
+		printf("%d rows count\n",sqlite3_column_int(pStmt, 0 ));
+	}
+	sqlite3_finalize(stmt);
+	
+	printf("insert %ld rows taken %.0fms, %.0f insert/second \n",i, ms ,rows*1000/ms);
 }
 
 
@@ -57,7 +63,7 @@ void select_test(sqlite3 *db,size_t rows){
 	double ms = (double)end.tv_sec * 1000.0 + (double)end.tv_usec/1000.0  
 	-  (double)start.tv_sec * 1000.0 - (double)start.tv_usec/1000.0;
 	
-	printf("select %ld rows taken %.0fms, %.0f select/second \n",rows, ms ,rows*1000/ms);
+	printf("select %ld rows taken %.0fms, %.0f select/second \n",i, ms ,rows*1000/ms);
 	
 }
 
