@@ -37,4 +37,4 @@ jobs:
           date "+[%Y-%m-%d %H:%M:%S.%3N]"
           ./bin/zookeeper-server-stop.sh
           ./bin/kafka-server-stop.sh
-          echo test, and deploy your project.
+          echo batch.size mean the size of batch procedure use (in bytes). 0 mean do not use batch procedure, and it will slow the throughput from 777K to 17K 
