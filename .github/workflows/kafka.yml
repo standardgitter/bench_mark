@@ -31,7 +31,7 @@ jobs:
           ./bin/kafka-topics.sh --create  --bootstrap-server 127.0.0.1:9092 --topic mytopic1
           ./bin/kafka-topics.sh --describe  --bootstrap-server 127.0.0.1:9092 --topic mytopic1
           date "+[%Y-%m-%d %H:%M:%S.%3N]"
-          ./bin/kafka-producer-perf-test.sh  --throughput -1 --producer-props acks=all batch.size=1 bootstrap.servers=127.0.0.1:9092 --num-records 3000000 --record-size 10 --topic mytopic1
+          ./bin/kafka-producer-perf-test.sh  --throughput -1 --producer-props acks=all batch.size=0 bootstrap.servers=127.0.0.1:9092 --num-records 3000000 --record-size 10 --topic mytopic1
           date "+[%Y-%m-%d %H:%M:%S.%3N]"
           ./bin/kafka-consumer-perf-test.sh --bootstrap-server 127.0.0.1:9092 --messages 3000000  --fetch-size 10000  --topic mytopic1
           date "+[%Y-%m-%d %H:%M:%S.%3N]"
