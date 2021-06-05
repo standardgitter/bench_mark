@@ -41,6 +41,7 @@ jobs:
           echo ============/etc/mysql/mysql.conf.d/mysqld.cnf
           cat /etc/mysql/mysql.conf.d/mysqld.cnf
           ps -ef|grep mysql
+          cp .my.cnf ~/
           service mysql start
           #sudo apt-get install mysql-server -y 
           #sudo apt-get install mysql-client -y
