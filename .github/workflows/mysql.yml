@@ -31,9 +31,10 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo start mysql service
-          service mysql start
           cat /etc/mysql/my.cnf
+          ps -ef|grep mysql
+          service mysql start
           #sudo apt-get install mysql-server -y 
           #sudo apt-get install mysql-client -y
-          sudo apt-get install libmysqld-dev -y
+          #sudo apt-get install libmysqld-dev -y
 
