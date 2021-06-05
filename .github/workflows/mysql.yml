@@ -50,7 +50,7 @@ jobs:
           echo run
           ls -l /var/run/mysqld/mysqld.sock
           cat /lib/systemd/system/mysql.service
-          mysql -u root -p -S /var/run/mysqld/mysqld.sock 
+          sudo mysql -u root -p -S /var/run/mysqld/mysqld.sock 
           #sudo apt-get install mysql-server -y 
           #sudo apt-get install mysql-client -y
           #sudo apt-get install libmysqld-dev -y
