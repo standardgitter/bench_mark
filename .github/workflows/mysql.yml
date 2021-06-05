@@ -30,7 +30,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          sudo apt-get install mysql-server -y 
-          sudo apt-get install mysql-client -y
+          echo start mysql service
+          service mysql start
+          cat /etc/mysql/my.cnf
+          #sudo apt-get install mysql-server -y 
+          #sudo apt-get install mysql-client -y
           sudo apt-get install libmysqld-dev -y
 
