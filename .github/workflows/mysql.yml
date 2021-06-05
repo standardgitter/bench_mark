@@ -48,8 +48,8 @@ jobs:
           ls -l /var/run/mysqld/
           ls -l /tmp/mysql
           echo run
-          ls -l /tmp/run/mysqld.sock
-          sudo mysql -u root -p -S /tmp/run/mysqld.sock --default-character-set=utf8 -N -e "GRANT ALL PRIVILEGES ON *.* TO 'benchmark'@'localhost' IDENTIFIED BY 'benchmark';GRANT ALL PRIVILEGES ON *.* TO 'benchmark'@'127.0.0.1' IDENTIFIED BY 'benchmark';create database benchmark;"
+          ls -l /var/run/mysqld/mysqld.sock
+          sudo mysql -u root -p -S /var/run/mysqld/mysqld.sock --default-character-set=utf8 -N -e "GRANT ALL PRIVILEGES ON *.* TO 'benchmark'@'localhost' IDENTIFIED BY 'benchmark';GRANT ALL PRIVILEGES ON *.* TO 'benchmark'@'127.0.0.1' IDENTIFIED BY 'benchmark';create database benchmark;"
           #sudo apt-get install mysql-server -y 
           #sudo apt-get install mysql-client -y
           #sudo apt-get install libmysqld-dev -y
