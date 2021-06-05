@@ -46,7 +46,7 @@ jobs:
           sudo systemctl status mysql.service
           ps -ef|grep mysql
           ls -l /var/run/mysqld/
-          ls -l /tmp
+          ls -l /tmp/mysql
           #sudo apt-get install mysql-server -y 
           #sudo apt-get install mysql-client -y
           #sudo apt-get install libmysqld-dev -y
