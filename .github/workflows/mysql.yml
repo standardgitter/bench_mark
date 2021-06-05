@@ -43,7 +43,8 @@ jobs:
           ps -ef|grep mysql
           cp .my.cnf ~/
           mkdir -p /tmp/mysql
-          service mysql start
+          systemctl status mysql.service
+          systemctl start  mysql.service
           #sudo apt-get install mysql-server -y 
           #sudo apt-get install mysql-client -y
           #sudo apt-get install libmysqld-dev -y
