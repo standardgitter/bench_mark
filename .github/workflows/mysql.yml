@@ -33,9 +33,12 @@ jobs:
           echo start mysql service
           cat /etc/mysql/my.cnf
           ls -l /etc/mysql/conf.d/
+          echo ============/etc/mysql/conf.d/mysql.cnf
           cat /etc/mysql/conf.d/mysql.cnf
           ls -l /etc/mysql/mysql.conf.d/
+          echo ============/etc/mysql/mysql.conf.d/mysql.cnf
           cat /etc/mysql/mysql.conf.d/mysql.cnf
+          echo ============/etc/mysql/mysql.conf.d/mysqld.cnf
           cat /etc/mysql/mysql.conf.d/mysqld.cnf
           ps -ef|grep mysql
           service mysql start
