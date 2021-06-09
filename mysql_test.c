@@ -39,9 +39,14 @@ void insert_test(MYSQL *mysql,size_t rows){
 	
 	mysql_query(mysql,"SELECT count(*) FROM t1");
 	MYSQL_RES *result = mysql_store_result(mysql);
+	
+	MYSQL_FIELD *fields; 
+	while (fields = mysql_fetch_field(result)){ 
+                printf("%s\t",fields->name); 
+	} 
 	MYSQL_ROW result_rows;
 	while (result_rows = mysql_fetch_row(result)){
-		printf("count %s row \n",result_rows[0]); 
+		printf("%s \n",result_rows[0]); 
 	}
 	mysql_free_result(result); 
 }
