@@ -24,6 +24,7 @@ void insert_test(MYSQL *mysql,size_t rows){
 
         for(i=0;i<rows;i++){
 		len = snprintf(var,sizeof(var),"011%d",i);
+		printf("%d var = %s\n",len,var);
                 if(mysql_stmt_execute(stmt) != 0)
 		{
 			fprintf(stderr, " %s\n", mysql_stmt_error(stmt));
@@ -40,7 +41,7 @@ void insert_test(MYSQL *mysql,size_t rows){
         
         printf("insert %d rows taken %.0fms, %.0f insert/second \n",i, ms ,rows*1000/ms);
 	
-	mysql_query(mysql,"SELECT count(*) FROM test");
+	mysql_query(mysql,"SELECT count(*) FROM t1");
 	MYSQL_RES *result = mysql_store_result(mysql);
 	
 	MYSQL_FIELD *fields; 
