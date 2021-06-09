@@ -14,15 +14,17 @@ void insert_test(MYSQL *mysql,size_t rows){
         stmt = mysql_stmt_init(mysql);
         mysql_stmt_prepare(stmt, "INSERT INTO t1(c2_t) VALUES(?)", strlen("INSERT INTO t1(c2_t) VALUES(?)"));
         
-        bind[0].buffer_type= MYSQL_TYPE_STRING;
+        
+
+        for(i=0;i<rows;i++){
+		bind[0].buffer_type= MYSQL_TYPE_STRING;
         bind[0].buffer= (char *)var;
         bind[0].buffer_length= sizeof(var);
         bind[0].is_null= 0;
         bind[0].length= &len;
 	
         mysql_stmt_bind_param(stmt, bind);
-
-        for(i=0;i<rows;i++){
+		
 		len = snprintf(var,sizeof(var),"011%d",i);
                 mysql_stmt_execute(stmt);
 		//mysql_commit(mysql);
