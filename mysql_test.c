@@ -28,6 +28,7 @@ void insert_test(MYSQL *mysql,size_t rows){
 	}
         
         mysql_stmt_close(stmt);
+	mysql_commit(mysql);
         
         gettimeofday(&end, NULL);
         double ms = (double)end.tv_sec * 1000.0 + (double)end.tv_usec/1000.0  
@@ -69,6 +70,8 @@ int main()
         mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t char(128))engine=innodb charset = utf8");
         
         insert_test(&mysql,rows);
+	
+	mysql_close(&mysql);
   
         return 0;
 }
