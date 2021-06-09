@@ -48,7 +48,6 @@ jobs:
           ls -l /var/run/mysqld/
           echo ====run
           ls -l /var/run/mysqld/mysqld.sock
-          ls /usr/include/
           cat /lib/systemd/system/mysql.service
           mysql -u debian-sys-maint -pad3saLOdw4u7xizj -S /var/run/mysqld/mysqld.sock  -e "show databases;use mysql;create table test(t varchar(250));insert into test(t) values ('fff');select * from test;commit;"
           gcc mysql_test.c -o mysql_test -I/usr/include/mysql -lmysqlclient
