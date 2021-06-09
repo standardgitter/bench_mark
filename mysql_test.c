@@ -43,14 +43,8 @@ void insert_test(MYSQL *mysql,size_t rows){
 
 int main(int argc, char* argv[]) 
 { 
-	size_t rows;
-	if(argc == 2)
-		rows = atol(argv[1]);
-	else
-		rows = 3000000;
-	
 	if(argc != 4){
-		printf("./mysql_test debian-sys-maint ad3saLOdw4u7xizj 3000000");
+		printf("./mysql_test user password  rows \ndemo : /mysql_test debian-sys-maint ad3saLOdw4u7xizj 3000000\n");
 		return -1;
 	}
 	size_t rows = atol(argv[3]);
