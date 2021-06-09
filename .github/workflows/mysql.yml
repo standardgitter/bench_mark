@@ -40,18 +40,12 @@ jobs:
           ls -l /etc/mysql/mysql.conf.d/
           echo ============/etc/mysql/mysql.conf.d/mysql.cnf
           cat /etc/mysql/mysql.conf.d/mysql.cnf
-          echo ============/etc/mysql/mysql.conf.d/mysqld.cnf
-          #cat /etc/mysql/mysql.conf.d/mysqld.cnf
-          #cp .my.cnf ~/
-          #mkdir -p /tmp/mysql
-          #sudo sed -i 's/User=mysql/User=runner/g' /lib/systemd/system/mysql.service
-          #sudo sed -i 's/Group=mysql/Group=docker/g' /lib/systemd/system/mysql.service
-          #cat /lib/systemd/system/mysql.service
+          echo ============/lib/systemd/system/mysql.service
+          cat /lib/systemd/system/mysql.service
           sudo systemctl start  mysql.service
           sudo systemctl status mysql.service
           ps -ef|grep mysql
           ls -l /var/run/mysqld/
-          #ls -l /tmp/mysql
           echo ====run
           ls -l /var/run/mysqld/mysqld.sock
           cat /lib/systemd/system/mysql.service
