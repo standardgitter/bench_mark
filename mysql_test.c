@@ -21,7 +21,7 @@ void insert_test(MYSQL *mysql,size_t rows){
         bind[0].length= &len;
 	
         mysql_stmt_bind_param(stmt, bind);
-        
+
         for(i=0;i<rows;i++){
 		len = snprintf(var,sizeof(var),"011%d",i);
                 mysql_stmt_execute(stmt);
@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
 
         mysql_init(&mysql); 
       
-        if (!mysql_real_connect(&mysql,"127.0.0.1","debian-sys-maint","ad3saLOdw4u7xizj","mysql",0,"/var/run/mysqld/mysqld.sock",0)){ 
+        if (!mysql_real_connect(&mysql,"localhost","debian-sys-maint","ad3saLOdw4u7xizj","mysql",0,"/var/run/mysqld/mysqld.sock",0)){ 
             fprintf(stderr, "Failed to connect to database: Error: %s\n", 
                 mysql_error(&mysql)); 
       
