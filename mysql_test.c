@@ -30,7 +30,7 @@ void insert_test(MYSQL *mysql,size_t rows){
 			printf(" %s\n", mysql_stmt_error(stmt));
 			break;
 		}		
-		//mysql_commit(mysql);
+		mysql_commit(mysql);
 	}
         
         mysql_stmt_close(stmt);
