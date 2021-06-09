@@ -48,13 +48,7 @@ int main(int argc, char* argv[])
 		rows = 3000000;
 	
         MYSQL mysql; 
-        MYSQL_RES *result; 
-        MYSQL_FIELD *fields; 
-        MYSQL_ROW rows;
 
-      
-        int numOfRows, numOfFields; 
-      
         mysql_init(&mysql); 
       
         if (!mysql_real_connect(&mysql,"127.0.0.1","debian-sys-maint","ad3saLOdw4u7xizj","mysql",0,"/var/run/mysqld/mysqld.sock",0)){ 
@@ -67,7 +61,7 @@ int main(int argc, char* argv[])
         printf("MYSQL VERSON IS : %s\n",mysql_get_server_info(&mysql)); 
         mysql_set_character_set(&mysql, "utf-8"); 
         
-        mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t char(128))engine=innodb charset = utf8");
+        mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t char(16))engine=innodb charset = utf8");
         
         insert_test(&mysql,rows);
 	
