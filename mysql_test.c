@@ -39,7 +39,7 @@ void insert_test(MYSQL *mysql,size_t rows){
 }
 
 
-int main() 
+int main(int argc, char* argv[]) 
 { 
 	size_t rows;
 	if(argc == 2)
