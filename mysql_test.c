@@ -3,7 +3,7 @@
 #include <sys/time.h>
 #include <mysql.h>
 
-void insert_test(MYSQL mysql,size_t rows){
+void insert_test(MYSQL *mysql,size_t rows){
         MYSQL_STMT    *stmt;
         MYSQL_BIND    bind[1];
         int i,len;
@@ -62,7 +62,7 @@ int main()
         
         mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t char(128))");
         
-        insert_test(mysql,20);
+        insert_test(&mysql,20);
   
         return 0;
 }
