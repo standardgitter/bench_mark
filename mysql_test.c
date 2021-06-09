@@ -28,6 +28,7 @@ void insert_test(MYSQL *mysql,size_t rows){
                 if(mysql_stmt_execute(stmt) != 0)
 		{
 			printf(" %s\n", mysql_stmt_error(stmt));
+			break;
 		}		
 		mysql_commit(mysql);
 	}
