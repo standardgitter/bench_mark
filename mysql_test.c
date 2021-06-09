@@ -39,6 +39,7 @@ void insert_test(MYSQL *mysql,size_t rows){
 
 }
 
+//mysql_test user password  rows
 
 int main(int argc, char* argv[]) 
 { 
@@ -48,11 +49,18 @@ int main(int argc, char* argv[])
 	else
 		rows = 3000000;
 	
-        MYSQL mysql; 
+	if(argc != 4){
+		printf();
+		return -1;
+	}
+	size_t rows = atol(argv[3]);
+	
+	
+        MYSQL mysql;
 
         mysql_init(&mysql); 
       
-        if (!mysql_real_connect(&mysql,"localhost","debian-sys-maint","ad3saLOdw4u7xizj","mysql",0,"/var/run/mysqld/mysqld.sock",0)){ 
+        if (!mysql_real_connect(&mysql,"localhost",argv[1],argv[2],"mysql",0,"/var/run/mysqld/mysqld.sock",0)){ 
             fprintf(stderr, "Failed to connect to database: Error: %s\n", 
                 mysql_error(&mysql)); 
       
