@@ -14,17 +14,15 @@ void insert_test(MYSQL *mysql,size_t rows){
         stmt = mysql_stmt_init(mysql);
         mysql_stmt_prepare(stmt, "INSERT INTO t1(c2_t) VALUES(?)", strlen("INSERT INTO t1(c2_t) VALUES(?)"));
         
-        
-
-        for(i=0;i<rows;i++){
-		bind[0].buffer_type= MYSQL_TYPE_STRING;
+        bind[0].buffer_type= MYSQL_TYPE_STRING;
         bind[0].buffer= (char *)var;
         bind[0].buffer_length= sizeof(var);
         bind[0].is_null= 0;
         bind[0].length= &len;
 	
         mysql_stmt_bind_param(stmt, bind);
-		
+
+        for(i=0;i<rows;i++){
 		len = snprintf(var,sizeof(var),"011%d",i);
                 mysql_stmt_execute(stmt);
 		//mysql_commit(mysql);
@@ -39,7 +37,7 @@ void insert_test(MYSQL *mysql,size_t rows){
         
         printf("insert %d rows taken %.0fms, %.0f insert/second \n",i, ms ,rows*1000/ms);
 	
-	mysql_query(mysql,"SELECT count(*) FROM t1");
+	mysql_query(mysql,"SELECT count(*) FROM test");
 	MYSQL_RES *result = mysql_store_result(mysql);
 	
 	MYSQL_FIELD *fields; 
