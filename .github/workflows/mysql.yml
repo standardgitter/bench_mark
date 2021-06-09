@@ -51,7 +51,7 @@ jobs:
           sudo systemctl status mysql.service
           ps -ef|grep mysql
           ls -l /var/run/mysqld/
-          ls -l /tmp/mysql
+          #ls -l /tmp/mysql
           echo ====run
           ls -l /var/run/mysqld/mysqld.sock
           cat /lib/systemd/system/mysql.service
