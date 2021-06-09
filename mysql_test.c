@@ -6,19 +6,20 @@
 void insert_test(MYSQL mysql,size_t rows){
         MYSQL_STMT    *stmt;
         MYSQL_BIND    bind[1];
-        int i.len;
+        int i,len;
         char var[12];
         struct timeval start, end;
 	gettimeofday(&start, NULL);
         
-        stmt = mysql_stmt_init(mysql) 
+        stmt = mysql_stmt_init(mysql);
         mysql_stmt_prepare(stmt, "INSERT INTO t1(c2_t) VALUES(?)", strlen("INSERT INTO t1(c2_t) VALUES(?)"));
         
         bind[0].buffer_type= MYSQL_TYPE_STRING;
         bind[0].buffer= (char *)var;
-        bind[0].buffer_length= STRING_SIZE;
+        bind[0].buffer_length= sizeof(var);
         bind[0].is_null= 0;
         bind[0].length= &len;
+	
         mysql_stmt_bind_param(stmt, bind);
         
         for(i=0;i<rows;i++){
