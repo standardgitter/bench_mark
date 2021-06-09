@@ -27,7 +27,7 @@ void insert_test(MYSQL *mysql,size_t rows){
 		printf("%d var = %s\n",len,var);
                 if(mysql_stmt_execute(stmt) != 0)
 		{
-			fprintf(stderr, " %s\n", mysql_stmt_error(stmt));
+			printf(" %s\n", mysql_stmt_error(stmt));
 		}		
 		//mysql_commit(mysql);
 	}
