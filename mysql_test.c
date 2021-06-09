@@ -24,7 +24,10 @@ void insert_test(MYSQL *mysql,size_t rows){
 
         for(i=0;i<rows;i++){
 		len = snprintf(var,sizeof(var),"011%d",i);
-                mysql_stmt_execute(stmt);
+                if(mysql_stmt_execute(stmt) != 0)
+		{
+			fprintf(stderr, " %s\n", mysql_stmt_error(stmt));
+		}		
 		//mysql_commit(mysql);
 	}
         
