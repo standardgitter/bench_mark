@@ -60,7 +60,7 @@ int main()
         printf("MYSQL VERSON IS : %s\n",mysql_get_server_info(&mysql)); 
         mysql_set_character_set(&mysql, "utf-8"); 
         
-        mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t char(128))");
+        mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t char(128))engine=innodb charset = utf8");
         
         insert_test(&mysql,20);
   
