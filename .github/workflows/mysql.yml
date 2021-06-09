@@ -49,7 +49,7 @@ jobs:
           #ls -l /var/run/mysqld/mysqld.sock
           #cat /lib/systemd/system/mysql.service
           sudo cat /etc/mysql/debian.cnf
-          mysql -u debian-sys-maint -pad3saLOdw4u7xizj -S /var/run/mysqld/mysqld.sock  -e "show databases;use mysql;create table test(t varchar(250));insert into test(t) values ('fff');insert into test(t) values ('ffeeef');select * from test;commit;show VARIABLES like ‘%max_allowed_packet%’;"
+          mysql -u debian-sys-maint -pad3saLOdw4u7xizj -S /var/run/mysqld/mysqld.sock  -e "show databases;use mysql;create table test(t varchar(250));insert into test(t) values ('fff');insert into test(t) values ('ffeeef');select * from test;commit;show VARIABLES like '%max_allowed_packet%';"
           gcc mysql_test.c -o mysql_test -I/usr/include/mysql -lmysqlclient
           ./mysql_test debian-sys-maint ad3saLOdw4u7xizj ${{ github.event.inputs.param }} 
           #sudo apt-get install mysql-server -y 
