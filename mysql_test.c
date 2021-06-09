@@ -1,12 +1,49 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <sys/time.h>
 #include <mysql.h>
+
+void insert_test(MYSQL mysql,size_t rows){
+        MYSQL_STMT    *stmt;
+        MYSQL_BIND    bind[1];
+        int i.len;
+        char var[12];
+        struct timeval start, end;
+	gettimeofday(&start, NULL);
+        
+        stmt = mysql_stmt_init(mysql) 
+        mysql_stmt_prepare(stmt, "INSERT INTO t1(c2_t) VALUES(?)", strlen("INSERT INTO t1(c2_t) VALUES(?)"));
+        
+        bind[0].buffer_type= MYSQL_TYPE_STRING;
+        bind[0].buffer= (char *)var;
+        bind[0].buffer_length= STRING_SIZE;
+        bind[0].is_null= 0;
+        bind[0].length= &len;
+        mysql_stmt_bind_param(stmt, bind);
+        
+        for(i=0;i<rows;i++){
+		len = snprintf(var,sizeof(var),"011%d",i);
+                mysql_stmt_execute(stmt);
+	}
+        
+        mysql_stmt_close(stmt);
+        
+        gettimeofday(&end, NULL);
+        double ms = (double)end.tv_sec * 1000.0 + (double)end.tv_usec/1000.0  
+	-  (double)start.tv_sec * 1000.0 - (double)start.tv_usec/1000.0;
+        
+        printf("insert %d rows taken %.0fms, %.0f insert/second \n",i, ms ,rows*1000/ms);
+
+}
+
 
 int main() 
 { 
         MYSQL mysql; 
         MYSQL_RES *result; 
         MYSQL_FIELD *fields; 
-        MYSQL_ROW rows; 
+        MYSQL_ROW rows;
+
       
         int numOfRows, numOfFields; 
       
@@ -20,8 +57,13 @@ int main()
         } 
       
         printf("MYSQL VERSON IS : %s\n",mysql_get_server_info(&mysql)); 
+        mysql_set_character_set(&mysql, "utf-8"); 
+        
+        mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t char(128))");
+        
+        insert_test(mysql,20);
   
-      return 0;
+        return 0;
 }
 
 
