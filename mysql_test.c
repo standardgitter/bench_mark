@@ -41,7 +41,7 @@ void insert_test(MYSQL *mysql,size_t rows){
 	MYSQL_RES *result = mysql_store_result(mysql);
 	MYSQL_ROW result_rows;
 	while (result_rows = mysql_fetch_row(result)){
-		printf("count %d row \n",result_rows[0]); 
+		printf("count %s row \n",result_rows[0]); 
 	}
 	mysql_free_result(result); 
 }
