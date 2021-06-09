@@ -25,11 +25,11 @@ void insert_test(MYSQL *mysql,size_t rows){
         for(i=0;i<rows;i++){
 		len = snprintf(var,sizeof(var),"011%d",i);
                 mysql_stmt_execute(stmt);
-		mysql_commit(mysql);
+		//mysql_commit(mysql);
 	}
         
         mysql_stmt_close(stmt);
-	//mysql_commit(mysql);
+	mysql_commit(mysql);
         
         gettimeofday(&end, NULL);
         double ms = (double)end.tv_sec * 1000.0 + (double)end.tv_usec/1000.0  
