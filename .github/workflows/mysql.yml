@@ -55,7 +55,7 @@ jobs:
           echo ====run
           ls -l /var/run/mysqld/mysqld.sock
           cat /lib/systemd/system/mysql.service
-          mysql -u debian-sys-maint -pad3saLOdw4u7xizj -S /var/run/mysqld/mysqld.sock  -e "show databases;"
+          mysql -u debian-sys-maint -pad3saLOdw4u7xizj -S /var/run/mysqld/mysqld.sock  -e "show databases;use mysql;create table test(t varchar(250));"
           #sudo apt-get install mysql-server -y 
           #sudo apt-get install mysql-client -y
           #sudo apt-get install libmysqld-dev -y
