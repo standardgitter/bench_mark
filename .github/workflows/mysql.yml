@@ -31,23 +31,23 @@ jobs:
       - name: Run a multi-line script
         run: |
           id
-          cat /etc/mysql/my.cnf
-          ls -l /etc/mysql/conf.d/
-          ls -l /etc/mysql/
-          echo ============/etc/mysql/conf.d/mysql.cnf
-          cat /etc/mysql/conf.d/mysql.cnf
-          ls -l /etc/mysql/mysql.conf.d/
-          echo ============/etc/mysql/mysql.conf.d/mysql.cnf
-          cat /etc/mysql/mysql.conf.d/mysql.cnf
-          echo ============/lib/systemd/system/mysql.service
-          cat /lib/systemd/system/mysql.service
+          #cat /etc/mysql/my.cnf
+          #ls -l /etc/mysql/conf.d/
+          #ls -l /etc/mysql/
+          #echo ============/etc/mysql/conf.d/mysql.cnf
+          #cat /etc/mysql/conf.d/mysql.cnf
+          #ls -l /etc/mysql/mysql.conf.d/
+          #echo ============/etc/mysql/mysql.conf.d/mysql.cnf
+          #cat /etc/mysql/mysql.conf.d/mysql.cnf
+          #echo ============/lib/systemd/system/mysql.service
+          #cat /lib/systemd/system/mysql.service
           sudo systemctl start  mysql.service
           sudo systemctl status mysql.service
           ps -ef|grep mysql
-          ls -l /var/run/mysqld/
-          echo ====run
-          ls -l /var/run/mysqld/mysqld.sock
-          cat /lib/systemd/system/mysql.service
+          #ls -l /var/run/mysqld/
+          #echo ====run
+          #ls -l /var/run/mysqld/mysqld.sock
+          #cat /lib/systemd/system/mysql.service
           sudo cat /etc/mysql/debian.cnf
           mysql -u debian-sys-maint -pad3saLOdw4u7xizj -S /var/run/mysqld/mysqld.sock  -e "show databases;use mysql;create table test(t varchar(250));insert into test(t) values ('fff');select * from test;commit;"
           gcc mysql_test.c -o mysql_test -I/usr/include/mysql -lmysqlclient
