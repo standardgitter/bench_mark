@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
 		rows = 3000000;
 	
 	if(argc != 4){
-		printf();
+		printf("./mysql_test debian-sys-maint ad3saLOdw4u7xizj 3000000");
 		return -1;
 	}
 	size_t rows = atol(argv[3]);
