@@ -6,7 +6,8 @@
 void insert_test(MYSQL *mysql,size_t rows){
         MYSQL_STMT    *stmt;
         MYSQL_BIND    bind[1];
-        int i,len;
+        int i;
+	long unsigned int len;
         char var[12];
         struct timeval start, end;
 	gettimeofday(&start, NULL);
@@ -86,7 +87,7 @@ int main(int argc, char* argv[])
         mysql_set_character_set(&mysql, "utf-8"); 
 	//mysql_autocommit(&mysql, 1);// 1(on) is default, turn the autocommit on meaning auto begin transaction. 
         
-        mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t char(16))engine=innodb charset = utf8");
+        mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=innodb");
         
         insert_test(&mysql,rows);
 	
