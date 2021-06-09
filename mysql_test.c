@@ -44,9 +44,14 @@ void insert_test(MYSQL *mysql,size_t rows){
 	while (fields = mysql_fetch_field(result)){ 
                 printf("%s\t",fields->name); 
 	} 
+	
+	int numOfFields = mysql_num_fields(result); 
 	MYSQL_ROW result_rows;
 	while (result_rows = mysql_fetch_row(result)){
-		printf("%s \n",result_rows[0]); 
+		for (i=0; i<numOfFields; i++){ 
+                    printf("%s\t",result_rows[i]); 
+                } 
+                printf("\n"); 
 	}
 	mysql_free_result(result); 
 }
