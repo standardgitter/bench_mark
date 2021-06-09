@@ -23,7 +23,7 @@ void insert_test(MYSQL *mysql,size_t rows){
         mysql_stmt_bind_param(stmt, bind);
 
         for(i=0;i<rows;i++){
-		len = snprintf(var,sizeof(var),"011%d",i);
+		len = snprintf(var,sizeof(var),"%011d",i);
 		printf("%d var = %s\n",len,var);
                 if(mysql_stmt_execute(stmt) != 0)
 		{
