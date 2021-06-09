@@ -40,6 +40,12 @@ void insert_test(MYSQL *mysql,size_t rows){
 
 int main() 
 { 
+	size_t rows;
+	if(argc == 2)
+		rows = atol(argv[1]);
+	else
+		rows = 3000000;
+	
         MYSQL mysql; 
         MYSQL_RES *result; 
         MYSQL_FIELD *fields; 
@@ -62,7 +68,7 @@ int main()
         
         mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t char(128))engine=innodb charset = utf8");
         
-        insert_test(&mysql,20);
+        insert_test(&mysql,rows);
   
         return 0;
 }
