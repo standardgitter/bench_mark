@@ -13,7 +13,7 @@ void insert_test_innodb(MYSQL *mysql,size_t rows){
         struct timeval start, end;
 	
 	mysql_query(mysql,"drop table if exists t1");
-	mysql_query(mysql,"CREATE TABLE t1(c2_t varchar(16))engine=innodb");
+	mysql_query(mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=innodb");
 	mysql_autocommit(mysql, 1);//default
 	
 	gettimeofday(&start, NULL);
