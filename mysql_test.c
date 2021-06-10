@@ -140,6 +140,7 @@ void insert_test_myisam(MYSQL *mysql,size_t rows){
 	
 	mysql_query(mysql,"drop table if exists t1");
 	mysql_query(mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=myisam");
+	
 	gettimeofday(start, NULL);
         
         stmt = mysql_stmt_init(mysql);
@@ -199,6 +200,7 @@ void insert_test_memory(MYSQL *mysql,size_t rows){
 	
 	mysql_query(mysql,"drop table if exists t1");
 	mysql_query(mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=memory");
+	
 	gettimeofday(start, NULL);
         
         stmt = mysql_stmt_init(mysql);
