@@ -31,7 +31,7 @@ void insert_test(MYSQL *mysql,size_t rows){
 			printf(" %s\n", mysql_stmt_error(stmt));
 			break;
 		}		
-		mysql_commit(mysql);
+//mysql_commit(mysql);
 	}
         
         mysql_stmt_close(stmt);
@@ -88,8 +88,8 @@ int main(int argc, char* argv[])
         mysql_set_character_set(&mysql, "utf-8"); 
 	mysql_autocommit(&mysql, 0); // 1(on) is default, turn the autocommit on meaning commit every ddl sql, so it very slow.
 	mysql_query(&mysql,"drop table if exists t1");
-	mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=innodb");
-	//mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=myisam");
+//mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=innodb");
+	mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=myisam");
 	//mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=memory");
 	
         insert_test(&mysql,rows);
