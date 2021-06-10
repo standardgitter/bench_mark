@@ -52,7 +52,7 @@ jobs:
           mysql -u debian-sys-maint -pad3saLOdw4u7xizj -S /var/run/mysqld/mysqld.sock  -e "show databases;use mysql;create table test(t varchar(250));insert into test(t) values ('fff');insert into test(t) values ('ffeeef');select * from test;commit;show VARIABLES like '%max_allowed_packet%';"
           gcc mysql_test.c -o mysql_test -I/usr/include/mysql -lmysqlclient
           ./mysql_test debian-sys-maint ad3saLOdw4u7xizj ${{ github.event.inputs.param }} 
-          mysqlslap -u debian-sys-maint -pad3saLOdw4u7xizj -S /var/run/mysqld/mysqld.sock --number-of-queries=${{ github.event.inputs.param }}  --delimiter=";" --create="drop table if exists t1;CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=innodb" --query="INSERT INTO t1(c2_t) VALUES('acasdc')"  --create-schema=mysql
+          mysqlslap -u debian-sys-maint -pad3saLOdw4u7xizj -S /var/run/mysqld/mysqld.sock --number-of-queries=${{ github.event.inputs.param }}  --delimiter=";" --create="drop table if exists t1;CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=innodb" --query="INSERT INTO t1(c2_t) VALUES('acasdc')"  --create-schema=mysql --debug-info
           #sudo apt-get install mysql-server -y 
           #sudo apt-get install mysql-client -y
           #sudo apt-get install libmysqld-dev -y
