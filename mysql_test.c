@@ -13,8 +13,8 @@ void insert_test_innodb(MYSQL *mysql,size_t rows){
         struct timeval start, end;
 	
 	mysql_query(mysql,"drop table if exists t1");
-	mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=innodb");
-	mysql_autocommit(&mysql, 1);
+	mysql_query(mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=innodb");
+	mysql_autocommit(mysql, 1);//default
 	
 	gettimeofday(&start, NULL);
         
@@ -76,8 +76,8 @@ void insert_test_innodb_batch(MYSQL *mysql,size_t rows){
         struct timeval start, end;
 	
 	mysql_query(mysql,"drop table if exists t1");
-	mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=innodb");
-	mysql_autocommit(&mysql, 0);
+	mysql_query(mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=innodb");
+	mysql_autocommit(mysql, 0);
 	
 	gettimeofday(&start, NULL);
         
@@ -139,8 +139,8 @@ void insert_test_myisam(MYSQL *mysql,size_t rows){
         struct timeval start, end;
 	
 	mysql_query(mysql,"drop table if exists t1");
-	mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=myisam");
-	gettimeofday(&start, NULL);
+	mysql_query(mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=myisam");
+	gettimeofday(start, NULL);
         
         stmt = mysql_stmt_init(mysql);
         mysql_stmt_prepare(stmt, "INSERT INTO t1(c2_t) VALUES(?)", strlen("INSERT INTO t1(c2_t) VALUES(?)"));
@@ -198,8 +198,8 @@ void insert_test_memory(MYSQL *mysql,size_t rows){
         struct timeval start, end;
 	
 	mysql_query(mysql,"drop table if exists t1");
-	mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=memory");
-	gettimeofday(&start, NULL);
+	mysql_query(mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=memory");
+	gettimeofday(start, NULL);
         
         stmt = mysql_stmt_init(mysql);
         mysql_stmt_prepare(stmt, "INSERT INTO t1(c2_t) VALUES(?)", strlen("INSERT INTO t1(c2_t) VALUES(?)"));
