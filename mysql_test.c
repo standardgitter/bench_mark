@@ -46,7 +46,7 @@ void insert_test_innodb(MYSQL *mysql,size_t rows){
         double ms = (double)end.tv_sec * 1000.0 + (double)end.tv_usec/1000.0  
 	-  (double)start.tv_sec * 1000.0 - (double)start.tv_usec/1000.0;
         
-        printf("insert innodb %d rows taken %.0fms, %.0f insert/second \n",i, ms ,rows*1000/ms);
+        printf("insert innodb autocommit %d rows taken %.0fms, %.0f insert/second \n",i, ms ,rows*1000/ms);
 	
 	mysql_query(mysql,"SELECT count(*) FROM t1");
 	MYSQL_RES *result = mysql_store_result(mysql);
