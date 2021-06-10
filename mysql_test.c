@@ -34,7 +34,7 @@ void insert_test(MYSQL *mysql,size_t rows){
 	}
         
         mysql_stmt_close(stmt);
-	mysql_commit(mysql);
+//mysql_commit(mysql);
         
         gettimeofday(&end, NULL);
         double ms = (double)end.tv_sec * 1000.0 + (double)end.tv_usec/1000.0  
@@ -85,11 +85,9 @@ int main(int argc, char* argv[])
       
         printf("MYSQL VERSON IS : %s\n",mysql_get_server_info(&mysql)); 
         mysql_set_character_set(&mysql, "utf-8"); 
-	mysql_autocommit(&mysql, 0);// 1(on) is default, turn the autocommit on meaning commit every ddl sql, so it very slow. MyIASM
-	
-	
-	mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=innodb");
-	mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=myisam");
+	mysql_autocommit(&mysql, 0); // 1(on) is default, turn the autocommit on meaning commit every ddl sql, so it very slow. MyIASM
+mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=innodb");
+//mysql_query(&mysql,"CREATE TABLE t1(c1_i int(11) PRIMARY KEY auto_increment, c2_t varchar(16))engine=myisam");
 	
         insert_test(&mysql,rows);
 	
