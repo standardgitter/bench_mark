@@ -33,7 +33,5 @@ jobs:
           sudo apt-get install -y apache2-utils
           ab -c 100 -n 3000000  http://127.0.0.1:8086/
           ab -k -c 100 -n 3000000  http://127.0.0.1:8086/
-          top -b > aa.txt
-          cat aa.txt
           cat /proc/cpuinfo
-          vmstat
+          vmstat 1 5
