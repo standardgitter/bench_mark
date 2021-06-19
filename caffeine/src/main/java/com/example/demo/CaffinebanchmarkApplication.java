@@ -14,17 +14,18 @@ public class CaffinebanchmarkApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CaffinebanchmarkApplication.class, args);
 		System.out.println("caffeine benchmark");
+		int num=3000000;
 
 		Cache<String, Object> cache = Caffeine.newBuilder()
 				.expireAfterWrite(1, TimeUnit.DAYS)
-				.maximumSize(999999999)
+				.maximumSize(3000000+100)
 				.build();
 
 		cache.put("key1", "value1");
 		System.out.println(cache.getIfPresent("key1"));
 		cache.invalidate("key1");
 
-		int num=3000000;
+
 		StopWatch watch = new StopWatch();
 		watch.start("watcher");
 		int i;
