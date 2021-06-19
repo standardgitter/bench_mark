@@ -1,5 +1,9 @@
 # bench_mark
 
+2 core CPU
+7 GB RAM 
+14 GB SSD 
+
 run in actions
 =================
 
