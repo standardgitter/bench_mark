@@ -1,6 +1,6 @@
 # bench_mark
 
-2 core CPU
+2 core CPU Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
 7 GB RAM 
 14 GB SSD 
 
