@@ -6,6 +6,11 @@ name: nginx
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+     inputs:
+      param:
+        description: 'rows'
+        required: true
+        default: '3000000'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -33,7 +38,7 @@ jobs:
           sudo nginx
           curl -v http://127.0.0.1:8086/
           sudo apt-get install -y apache2-utils
-          ab -c 100 -n 3000000  http://127.0.0.1:8086/
-          ab -k -c 100 -n 3000000  http://127.0.0.1:8086/
+          ab -c 100 -n ${{ github.event.inputs.param }}  http://127.0.0.1:8086/
+          ab -k -c 100 -n ${{ github.event.inputs.param }}  http://127.0.0.1:8086/
           cat /proc/cpuinfo
           vmstat 1 5
