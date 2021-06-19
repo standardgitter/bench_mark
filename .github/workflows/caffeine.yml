@@ -21,18 +21,12 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn -B package --file springboot/pom.xml
+      run: mvn -B package --file caffeine/pom.xml
       
 
     - name: Run a multi-line script
       run: |
-        ls -l
-        ls -l springboot
-        java -jar springboot/target/demo-0.0.1-SNAPSHOT.jar &
+        ls -l caffeine
+        java -jar caffeine/target/demo-0.0.1-SNAPSHOT.jar -Xms128m -Xmx1024m -XX:MaxPermSize=512m &
         sleep 10
-        curl http://127.0.0.1:8080/
-        sudo apt-get install -y apache2-utils
-        ab -c 100 -n 1000000  http://127.0.0.1:8080/
-        top -b > top.txt &
-        sleep 1
-        cat top.txt
+        vmstat 1 5
