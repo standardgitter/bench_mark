@@ -1,17 +1,17 @@
 # bench_mark
 
-2 core CPU Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
-7 GB RAM 
-14 GB SSD 
+###2 core CPU Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
+###7 GB RAM 
+###14 GB SSD 
 
-run in actions
-=================
+###run in actions
+###=================
 
-sqlite3================================================
+###sqlite3================================================
 
-insert 10000000 rows taken 17867ms, 559690 insert/second 
+###insert 10000000 rows taken 17867ms, 559690 insert/second 
 
-select 10000000 rows taken 9210ms, 1085776 select/second 
+###select 10000000 rows taken 9210ms, 1085776 select/second 
 
 
 kafka==================================================
