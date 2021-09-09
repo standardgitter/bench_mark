@@ -30,8 +30,10 @@ start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.s
 2021-05-12 08:53:26:326, 2021-05-12 08:54:10:025, 2861.0229, 65.4711, 3000000, 68651.4566, 882, 42817, 66.8198, 70065.6281  
   
 ---
-### caffeine==================================================
+### caffeine
+
 insert 3000000 item  in 4.222486291 seconds, 710000insert/second  
+  
 ---
 ### redis====================================================
 
@@ -209,93 +211,93 @@ MSET (10 keys): 75700.23 requests per second
 
 
 
-nginx===================================================
+### nginx
 
-Server Software:        nginx/1.18.0
-Server Hostname:        127.0.0.1
-Server Port:            8086
+Server Software:        nginx/1.18.0  
+Server Hostname:        127.0.0.1  
+Server Port:            8086  
+  
+Document Path:          /  
+Document Length:        10 bytes  
+  
+Concurrency Level:      100  
+Time taken for tests:   220.126 seconds  
+Complete requests:      3000000  
+Failed requests:        0  
+Total transferred:      747000000 bytes  
+HTML transferred:       30000000 bytes  
+Requests per second:    13628.56 [#/sec] (mean)  
+Time per request:       7.338 [ms] (mean)  
+Time per request:       0.073 [ms] (mean, across all concurrent requests)  
+Transfer rate:          3313.98 [Kbytes/sec] received  
 
-Document Path:          /
-Document Length:        10 bytes
+### nginx keep alive
+Concurrency Level:      100  
+Time taken for tests:   150.875 seconds  
+Complete requests:      3000000  
+Failed requests:        0  
+Keep-Alive requests:    2970048  
+Total transferred:      761850240 bytes  
+HTML transferred:       30000000 bytes  
+Requests per second:    19884.04 [#/sec] (mean)  
+Time per request:       5.029 [ms] (mean)  
+Time per request:       0.050 [ms] (mean, across all concurrent requests)  
+Transfer rate:          4931.20 [Kbytes/sec] received  
 
-Concurrency Level:      100
-Time taken for tests:   220.126 seconds
-Complete requests:      3000000
-Failed requests:        0
-Total transferred:      747000000 bytes
-HTML transferred:       30000000 bytes
-Requests per second:    13628.56 [#/sec] (mean)
-Time per request:       7.338 [ms] (mean)
-Time per request:       0.073 [ms] (mean, across all concurrent requests)
-Transfer rate:          3313.98 [Kbytes/sec] received
+---
+### mysql
 
-nginx keep alive ===================================================
-Concurrency Level:      100
-Time taken for tests:   150.875 seconds
-Complete requests:      3000000
-Failed requests:        0
-Keep-Alive requests:    2970048
-Total transferred:      761850240 bytes
-HTML transferred:       30000000 bytes
-Requests per second:    19884.04 [#/sec] (mean)
-Time per request:       5.029 [ms] (mean)
-Time per request:       0.050 [ms] (mean, across all concurrent requests)
-Transfer rate:          4931.20 [Kbytes/sec] received
-
-
-
-mysql==========================================
-
-myisam == memory
-2400 insert/s
-
-
-innodb autocommit 
-1657 insert/second 
-
-
-innodb batch commit
-17997 insert/second 
-
-10client insert 100000 use 16s (innodb autocommit)
-use 10client,  6250  insert/second 
-
-
-mysql ssd==============
-MYSQL VERSON IS : 10.5.9-MariaDB
-insert myisam 300000 rows taken 12024ms, 24949 insert/second 
-count(*)        300000
- The table 't1' is full
-insert memory 174604 rows taken 4856ms, 61786 insert/second 
-count(*)        174604
-insert innodb autocommit 300000 rows taken 128154ms, 2341 insert/second 
-count(*)        300000
-insert innodb batch commit 300000 rows taken 11040ms, 27174 insert/second 
-count(*)        300000
-
-10client insert 100000 use 14s (innodb autocommit)
-use 10client,  71000  insert/second 
+myisam == memory  
+2400 insert/s  
+  
+  
+innodb autocommit   
+1657 insert/second   
+  
+  
+innodb batch commit  
+17997 insert/second   
+  
+10client insert 100000 use 16s (innodb autocommit)  
+use 10client,  6250  insert/second   
+  
+  
+### mysql ssd
+MYSQL VERSON IS : 10.5.9-MariaDB  
+insert myisam 300000 rows taken 12024ms, 24949 insert/second   
+count(*)        300000  
+ The table 't1' is full  
+insert memory 174604 rows taken 4856ms, 61786 insert/second   
+count(*)        174604  
+insert innodb autocommit 300000 rows taken 128154ms, 2341 insert/second   
+count(*)        300000  
+insert innodb batch commit 300000 rows taken 11040ms, 27174 insert/second   
+count(*)        300000  
+  
+10client insert 100000 use 14s (innodb autocommit)  
+use 10client,  71000  insert/second   
 
 
-springboot=================
-Concurrency Level:      100
-Time taken for tests:   95.331 seconds
-Complete requests:      1000000
-Failed requests:        0
-Total transferred:      151000000 bytes
-HTML transferred:       18000000 bytes
-Requests per second:    10489.80 [#/sec] (mean)
-Time per request:       9.533 [ms] (mean)
-Time per request:       0.095 [ms] (mean, across all concurrent requests)
-Transfer rate:          1546.84 [Kbytes/sec] received
-
-top - 13:23:43 up 3 min,  0 users,  load average: 3.43, 1.41, 0.53
-Tasks: 145 total,   2 running, 143 sleeping,   0 stopped,   0 zombie
-%Cpu(s):  5.9 us,  2.9 sy,  0.0 ni, 91.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-MiB Mem :   6953.9 total,   3953.5 free,   1156.5 used,   1843.8 buff/cache
-MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.   5485.0 avail Mem 
-
-    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
-   1390 runner    20   0 3472036 105788  52248 S   6.2   1.5   0:03.74 Runner.+
-   1594 runner    20   0 4336236 649384  16948 S   6.2   9.1   2:14.26 java
-
+---
+### springboot
+  
+Concurrency Level:      100  
+Time taken for tests:   95.331 seconds  
+Complete requests:      1000000  
+Failed requests:        0  
+Total transferred:      151000000 bytes  
+HTML transferred:       18000000 bytes  
+Requests per second:    10489.80 [#/sec] (mean)  
+Time per request:       9.533 [ms] (mean)  
+Time per request:       0.095 [ms] (mean, across all concurrent requests)  
+Transfer rate:          1546.84 [Kbytes/sec] received  
+  
+top - 13:23:43 up 3 min,  0 users,  load average: 3.43, 1.41, 0.53  
+Tasks: 145 total,   2 running, 143 sleeping,   0 stopped,   0 zombie  
+%Cpu(s):  5.9 us,  2.9 sy,  0.0 ni, 91.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st  
+MiB Mem :   6953.9 total,   3953.5 free,   1156.5 used,   1843.8 buff/cache  
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.   5485.0 avail Mem   
+  
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND  
+   1390 runner    20   0 3472036 105788  52248 S   6.2   1.5   0:03.74 Runner.+  
+   1594 runner    20   0 4336236 649384  16948 S   6.2   9.1   2:14.26 java  
