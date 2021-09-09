@@ -13,7 +13,7 @@ select 10000000 rows taken 9210ms, 1085776 select/second
 
 ---
 ### kafka
-
+```
 Created topic mytopic1.  
 Topic: mytopic1	TopicId: urBVbX7jQpixdM_GstLZbw	PartitionCount: 1	ReplicationFactor: 1	Configs: segment.bytes=1073741824  
 	Topic: mytopic1	Partition: 0	Leader: 0	Replicas: 0	Isr: 0  
@@ -28,15 +28,15 @@ Topic: mytopic1	TopicId: urBVbX7jQpixdM_GstLZbw	PartitionCount: 1	ReplicationFac
 3000000 records sent, 73233.247895 records/sec (69.84 MB/sec), 438.42 ms avg latency, 1715.00 ms max latency, 361 ms 50th, 914 ms 95th, 1198 ms 99th, 1675 ms 99.9th.  
 start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec  
 2021-05-12 08:53:26:326, 2021-05-12 08:54:10:025, 2861.0229, 65.4711, 3000000, 68651.4566, 882, 42817, 66.8198, 70065.6281  
-  
+```  
 ---
 ### caffeine
-
+```
 insert 3000000 item  in 4.222486291 seconds, 710000insert/second  
-  
+```
 ---
 ### redis
-
+```
 PING_INLINE: 0.00  
 PING_INLINE: 62892.43  
 PING_INLINE: 65564.88  
@@ -207,12 +207,12 @@ MSET (10 keys): 74461.29
 MSET (10 keys): 75584.60  
 MSET (10 keys): 75732.61  
 MSET (10 keys): 75700.23 requests per second  
-
+```
 
   
 ---
 ### nginx
-
+```
 Server Software:        nginx/1.18.0  
 Server Hostname:        127.0.0.1  
 Server Port:            8086  
@@ -230,8 +230,9 @@ Requests per second:    13628.56 [#/sec] (mean)
 Time per request:       7.338 [ms] (mean)  
 Time per request:       0.073 [ms] (mean, across all concurrent requests)  
 Transfer rate:          3313.98 [Kbytes/sec] received  
-
+```
 ### nginx keep alive
+```
 Concurrency Level:      100  
 Time taken for tests:   150.875 seconds  
 Complete requests:      3000000  
@@ -243,10 +244,10 @@ Requests per second:    19884.04 [#/sec] (mean)
 Time per request:       5.029 [ms] (mean)  
 Time per request:       0.050 [ms] (mean, across all concurrent requests)  
 Transfer rate:          4931.20 [Kbytes/sec] received  
-
+```
 ---
 ### mysql
-
+```
 myisam == memory  
 2400 insert/s  
   
@@ -276,7 +277,7 @@ count(*)        300000
   
 10client insert 100000 use 14s (innodb autocommit)  
 use 10client,  71000  insert/second   
-
+```
 
 ---
 ### springboot
