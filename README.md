@@ -261,9 +261,10 @@ innodb batch commit
   
 10client insert 100000 use 16s (innodb autocommit)  
 use 10client,  6250  insert/second   
-  
+```  
   
 ### mysql ssd
+```
 MYSQL VERSON IS : 10.5.9-MariaDB  
 insert myisam 300000 rows taken 12024ms, 24949 insert/second   
 count(*)        300000  
