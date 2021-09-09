@@ -6,7 +6,7 @@
 
 ---
 
-### sqlite3 in memory
+### sqlite3
 ```
 //in memory
 insert 10000000 rows taken 17867ms, 559690 insert/second  
@@ -16,6 +16,41 @@ select 10000000 rows taken 9210ms, 1085776 select/second
 insert 30000 rows taken 32045ms, 936 insert/second 
 select 30000 rows taken 218ms, 137436 select/second 
 ```
+---
+### mysql
+```
+myisam ==  in memory  
+2400 insert/s  
+  
+  
+innodb autocommit   
+1657 insert/second   
+  
+  
+innodb batch commit  
+17997 insert/second   
+  
+10client insert 100000 use 16s (innodb autocommit)  
+use 10client,  6250  insert/second   
+```  
+  
+### mysql ssd
+```
+MYSQL VERSON IS : 10.5.9-MariaDB  
+insert myisam 300000 rows taken 12024ms, 24949 insert/second   
+count(*)        300000  
+ The table 't1' is full  
+insert memory 174604 rows taken 4856ms, 61786 insert/second   
+count(*)        174604  
+insert innodb autocommit 300000 rows taken 128154ms, 2341 insert/second   
+count(*)        300000  
+insert innodb batch commit 300000 rows taken 11040ms, 27174 insert/second   
+count(*)        300000  
+  
+10client insert 100000 use 14s (innodb autocommit)  
+use 10client,  71000  insert/second   
+```
+
 ---
 ### kafka
 ```
@@ -251,41 +286,7 @@ Time per request:       0.026 [ms] (mean, across all concurrent requests)
 Transfer rate:          9610.24 [Kbytes/sec] received
 ```
 ---
-### mysql
-```
-myisam == memory  
-2400 insert/s  
-  
-  
-innodb autocommit   
-1657 insert/second   
-  
-  
-innodb batch commit  
-17997 insert/second   
-  
-10client insert 100000 use 16s (innodb autocommit)  
-use 10client,  6250  insert/second   
-```  
-  
-### mysql ssd
-```
-MYSQL VERSON IS : 10.5.9-MariaDB  
-insert myisam 300000 rows taken 12024ms, 24949 insert/second   
-count(*)        300000  
- The table 't1' is full  
-insert memory 174604 rows taken 4856ms, 61786 insert/second   
-count(*)        174604  
-insert innodb autocommit 300000 rows taken 128154ms, 2341 insert/second   
-count(*)        300000  
-insert innodb batch commit 300000 rows taken 11040ms, 27174 insert/second   
-count(*)        300000  
-  
-10client insert 100000 use 14s (innodb autocommit)  
-use 10client,  71000  insert/second   
-```
 
----
 ### springboot
 ```
 Server Software:        
