@@ -38,7 +38,7 @@ jobs:
           sudo nginx
           curl -v http://127.0.0.1:8086/index.html
           sudo apt-get install -y apache2-utils
-          ab -c 100 -n ${{ github.event.inputs.param }}  http://127.0.0.1:8086/
-          ab -k -c 100 -n ${{ github.event.inputs.param }}  http://127.0.0.1:8086/
+          ab -c 100 -n ${{ github.event.inputs.param }}  http://127.0.0.1:8086/index.html
+          ab -k -c 100 -n ${{ github.event.inputs.param }}  http://127.0.0.1:8086/index.html
           cat /proc/cpuinfo
           vmstat 1 5
