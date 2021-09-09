@@ -105,8 +105,9 @@ int main(int argc, char* argv[])
 		rows = 3000000;
 	
 	sqlite3 *db;
-	//sqlite3_open(":memory:", &db);
+	
 	sqlite3_open("ssd.sqlite3", &db);
+	sqlite3_open(":memory:", &db);
 	sqlite3_exec(db, "CREATE TABLE t1(c1_i INTEGER PRIMARY KEY,c2_t text)", NULL, 0, NULL);
 
 	insert_test(db,rows);
