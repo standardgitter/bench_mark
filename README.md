@@ -218,37 +218,37 @@ MSET (10 keys): 75700.23 requests per second
 ---
 ### nginx
 ```
-Server Software:        nginx/1.18.0  
-Server Hostname:        127.0.0.1  
-Server Port:            8086  
-  
-Document Path:          /  
-Document Length:        10 bytes  
-  
-Concurrency Level:      100  
-Time taken for tests:   220.126 seconds  
-Complete requests:      3000000  
-Failed requests:        0  
-Total transferred:      747000000 bytes  
-HTML transferred:       30000000 bytes  
-Requests per second:    13628.56 [#/sec] (mean)  
-Time per request:       7.338 [ms] (mean)  
-Time per request:       0.073 [ms] (mean, across all concurrent requests)  
-Transfer rate:          3313.98 [Kbytes/sec] received  
+Server Software:        nginx/1.18.0
+Server Hostname:        127.0.0.1
+Server Port:            8086
+
+Document Path:          /index.html
+Document Length:        10 bytes
+
+Concurrency Level:      100
+Time taken for tests:   144.573 seconds
+Complete requests:      3000000
+Failed requests:        0
+Total transferred:      747000000 bytes
+HTML transferred:       30000000 bytes
+Requests per second:    20750.78 [#/sec] (mean)
+Time per request:       4.819 [ms] (mean)
+Time per request:       0.048 [ms] (mean, across all concurrent requests)
+Transfer rate:          5045.84 [Kbytes/sec] received
 ```
 ### nginx keep alive
 ```
-Concurrency Level:      100  
-Time taken for tests:   150.875 seconds  
-Complete requests:      3000000  
-Failed requests:        0  
-Keep-Alive requests:    2970048  
-Total transferred:      761850240 bytes  
-HTML transferred:       30000000 bytes  
-Requests per second:    19884.04 [#/sec] (mean)  
-Time per request:       5.029 [ms] (mean)  
-Time per request:       0.050 [ms] (mean, across all concurrent requests)  
-Transfer rate:          4931.20 [Kbytes/sec] received  
+Concurrency Level:      100
+Time taken for tests:   77.417 seconds
+Complete requests:      3000000
+Failed requests:        0
+Keep-Alive requests:    2970049
+Total transferred:      761850245 bytes
+HTML transferred:       30000000 bytes
+Requests per second:    38751.27 [#/sec] (mean)
+Time per request:       2.581 [ms] (mean)
+Time per request:       0.026 [ms] (mean, across all concurrent requests)
+Transfer rate:          9610.24 [Kbytes/sec] received
 ```
 ---
 ### mysql
@@ -288,24 +288,21 @@ use 10client,  71000  insert/second
 ---
 ### springboot
 ```
-Concurrency Level:      100  
-Time taken for tests:   95.331 seconds  
-Complete requests:      1000000  
-Failed requests:        0  
-Total transferred:      151000000 bytes  
-HTML transferred:       18000000 bytes  
-Requests per second:    10489.80 [#/sec] (mean)  
-Time per request:       9.533 [ms] (mean)  
-Time per request:       0.095 [ms] (mean, across all concurrent requests)  
-Transfer rate:          1546.84 [Kbytes/sec] received  
-  
-top - 13:23:43 up 3 min,  0 users,  load average: 3.43, 1.41, 0.53  
-Tasks: 145 total,   2 running, 143 sleeping,   0 stopped,   0 zombie  
-%Cpu(s):  5.9 us,  2.9 sy,  0.0 ni, 91.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st  
-MiB Mem :   6953.9 total,   3953.5 free,   1156.5 used,   1843.8 buff/cache  
-MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.   5485.0 avail Mem   
-  
-    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND  
-   1390 runner    20   0 3472036 105788  52248 S   6.2   1.5   0:03.74 Runner.+  
-   1594 runner    20   0 4336236 649384  16948 S   6.2   9.1   2:14.26 java  
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            8080
+
+Document Path:          /
+Document Length:        18 bytes
+
+Concurrency Level:      100
+Time taken for tests:   85.552 seconds
+Complete requests:      1000000
+Failed requests:        0
+Total transferred:      151000000 bytes
+HTML transferred:       18000000 bytes
+Requests per second:    11688.82 [#/sec] (mean)
+Time per request:       8.555 [ms] (mean)
+Time per request:       0.086 [ms] (mean, across all concurrent requests)
+Transfer rate:          1723.64 [Kbytes/sec] received
 ```
