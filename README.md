@@ -1,8 +1,8 @@
 # bench_mark
 
-### 2 core CPU Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
-### 7 GB RAM 
-### 14 GB SSD 
+#### 2 core CPU Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
+#### 7 GB RAM 
+#### 14 GB SSD 
 
 run in actions 
 ---
@@ -35,7 +35,7 @@ start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.s
 insert 3000000 item  in 4.222486291 seconds, 710000insert/second  
   
 ---
-### redis====================================================
+### redis
 
 PING_INLINE: 0.00  
 PING_INLINE: 62892.43  
@@ -209,8 +209,8 @@ MSET (10 keys): 75732.61
 MSET (10 keys): 75700.23 requests per second  
 
 
-
-
+  
+---
 ### nginx
 
 Server Software:        nginx/1.18.0  
