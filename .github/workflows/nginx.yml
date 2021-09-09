@@ -36,7 +36,7 @@ jobs:
           sudo cat /etc/nginx/nginx.conf
           sudo echo "111222333" > /tmp/index.html
           sudo nginx
-          curl -v http://127.0.0.1:8086/
+          curl -v http://127.0.0.1:8086/index.html
           sudo apt-get install -y apache2-utils
           ab -c 100 -n ${{ github.event.inputs.param }}  http://127.0.0.1:8086/
           ab -k -c 100 -n ${{ github.event.inputs.param }}  http://127.0.0.1:8086/
