@@ -1,10 +1,9 @@
-# bench_mark
+# benchmark run in actions 
 
 #### 2 core CPU Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
 #### 7 GB RAM 
 #### 14 GB SSD 
 
-run in actions 
 ---
 
 ### sqlite3
