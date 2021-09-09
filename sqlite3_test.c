@@ -11,7 +11,7 @@ void insert_test(sqlite3 *db,size_t rows){
 	gettimeofday(&start, NULL);
 	
 	sqlite3_prepare_v2(db, "INSERT INTO t1(c2_t) VALUES(?)",-1, &stmt, 0);
-	sqlite3_exec(db, "begin", NULL, 0, NULL);//use transation will save much time
+	//sqlite3_exec(db, "begin", NULL, 0, NULL);//use transation will save much time
 	for(i=0;i<rows;i++){
 		len = snprintf(var,sizeof(var),"%011d",i);
 		sqlite3_bind_text(stmt, 0, var, -1, SQLITE_STATIC);
@@ -19,7 +19,7 @@ void insert_test(sqlite3 *db,size_t rows){
 		sqlite3_reset(stmt);
 	}
 	sqlite3_finalize(stmt);
-	sqlite3_exec(db, "commit", NULL, 0, NULL);
+	//sqlite3_exec(db, "commit", NULL, 0, NULL);
 	
 	
 	gettimeofday(&end, NULL);
