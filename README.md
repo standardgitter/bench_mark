@@ -8,8 +8,13 @@
 
 ### sqlite3 in memory
 ```
+//in memory
 insert 10000000 rows taken 17867ms, 559690 insert/second  
 select 10000000 rows taken 9210ms, 1085776 select/second  
+
+//on disk
+insert 30000 rows taken 32045ms, 936 insert/second 
+select 30000 rows taken 218ms, 137436 select/second 
 ```
 ---
 ### kafka
